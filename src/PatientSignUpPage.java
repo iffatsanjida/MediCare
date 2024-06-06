@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-public class SignUpPage extends JFrame implements ActionListener {
+public class PatientSignUpPage extends JFrame implements ActionListener {
 	private JPanel panel;
 	private JPasswordField passwordField;
 
-    public SignUpPage() {
+    public PatientSignUpPage() {
     	getContentPane().setBackground(new Color(143, 189, 246));
         // Create the frame
         setTitle("Signup Page");
@@ -19,17 +19,11 @@ public class SignUpPage extends JFrame implements ActionListener {
         panel = new JPanel();
         getContentPane().add(panel, BorderLayout.CENTER);
         
-        JLabel lblNewLabel = new JLabel("MediCare ");
+        JLabel lblNewLabel = new JLabel("SignUp for Patient");
         lblNewLabel.setBackground(new Color(101, 199, 248));
         lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD, 30));
-        lblNewLabel.setBounds(173, 64, 168, 44);
+        lblNewLabel.setBounds(136, 73, 268, 44);
         getContentPane().add(lblNewLabel);
-        
-        JLabel lblSignup = new JLabel("SignUp");
-        lblSignup.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-        lblSignup.setBackground(new Color(101, 199, 248));
-        lblSignup.setBounds(205, 102, 168, 44);
-        getContentPane().add(lblSignup);
         
         JLabel lblFirstName = new JLabel("First Name:");
         lblFirstName.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
@@ -78,61 +72,23 @@ public class SignUpPage extends JFrame implements ActionListener {
         JButton backBtn = new JButton("Back");
         backBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		new selectUsertype();
+        		dispose();
         	}
         });
         backBtn.setBackground(new Color(255, 255, 255));
         backBtn.setBounds(173, 514, 130, 44);
         getContentPane().add(backBtn);
         
-        JLabel lblNewLabel_1 = new JLabel("Already have an account?");
-        lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-        lblNewLabel_1.setBounds(190, 471, 242, 16);
-        getContentPane().add(lblNewLabel_1);
-        
         passwordField = new JPasswordField();
         passwordField.setBounds(173, 411, 268, 32);
         getContentPane().add(passwordField);
         
-        JLabel lblNewLabel_1_1 = new JLabel("Log in");
-        lblNewLabel_1_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-        lblNewLabel_1_1.setBounds(382, 471, 242, 16);
-        getContentPane().add(lblNewLabel_1_1);
+        setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String username = usernameField.getText();
-        String password = new String(passwordField.getPassword());
-
-        if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Username or Password cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        File file = new File("Users");
-        try (FileWriter fw = new FileWriter(file, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-
-            // If file doesn't exist, create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            // Write username and password to the file
-            out.println(username + ":" + password);
-            JOptionPane.showMessageDialog(this, "User registered successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error saving user data", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public static void main(String[] args) {
-        // Run the GUI application
-        SwingUtilities.invokeLater(() -> {
-            SignUpPage signupPage = new SignUpPage();
-            signupPage.setVisible(true);
-        });
+        
     }
 }

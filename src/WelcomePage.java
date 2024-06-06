@@ -54,7 +54,7 @@ private JFrame frame = new JFrame("Menu");
 		});
 		startJourney.setBackground(new Color(192, 192, 192));
 		startJourney.setFont(new Font("Tahoma", Font.BOLD, 16));
-		startJourney.setBounds(558, 330, 263, 40);
+		startJourney.setBounds(543, 330, 278, 40);
 		getContentPane().add(startJourney);
 		
 		

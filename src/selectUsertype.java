@@ -5,6 +5,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class selectUsertype extends JFrame{
 	public selectUsertype() {
@@ -19,11 +21,23 @@ public class selectUsertype extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Doctor");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new DoctorSignupPage();
+				dispose();
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton.setBounds(188, 210, 135, 37);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Patient");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new PatientSignUpPage();
+				dispose();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1.setBounds(188, 273, 135, 37);
 		getContentPane().add(btnNewButton_1);
