@@ -6,11 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class welcomePage extends JFrame {
+public class WelcomePage extends JFrame {
 private JFrame frame = new JFrame("Menu");
 	
-	public welcomePage() {
+	public WelcomePage() {
 		getContentPane().setBackground(new Color(125, 173, 196));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 967, 585);
@@ -43,11 +45,17 @@ private JFrame frame = new JFrame("Menu");
 		lblNewLabel_1.setBounds(543, 250, 427, 26);
 		getContentPane().add(lblNewLabel_1);
 		
-		JButton btnNewButton_3 = new JButton("Start your journey with us >");
-		btnNewButton_3.setBackground(new Color(192, 192, 192));
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnNewButton_3.setBounds(558, 330, 263, 40);
-		getContentPane().add(btnNewButton_3);
+		JButton startJourney = new JButton("Start your journey with us >");
+		startJourney.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new selectUsertype();
+				dispose();
+			}
+		});
+		startJourney.setBackground(new Color(192, 192, 192));
+		startJourney.setFont(new Font("Tahoma", Font.BOLD, 16));
+		startJourney.setBounds(558, 330, 263, 40);
+		getContentPane().add(startJourney);
 		
 		
 		
