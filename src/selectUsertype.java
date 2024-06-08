@@ -44,10 +44,16 @@ public class selectUsertype extends JFrame{
 		
 		JLabel lblNewLabel_1 = new JLabel("Already have an account?");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(96, 381, 308, 13);
+		lblNewLabel_1.setBounds(96, 381, 219, 13);
 		getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton_2 = new JButton("Log in");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Login();
+				dispose();
+			}
+		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_2.setBounds(313, 379, 85, 21);
 		getContentPane().add(btnNewButton_2);
